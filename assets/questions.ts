@@ -191,7 +191,7 @@ export const questions = [
 export const required = ['prediction_overall_rating'];
 // Are there any taxonomic issues with any part of this species? ______
 
-export const feedbackList = [
+export const feedbackOptions = [
   {
     title: 'Prediction: False presence',
     name: 'fb_false_presence',
