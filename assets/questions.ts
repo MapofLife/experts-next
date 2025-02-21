@@ -98,11 +98,11 @@ export const questions = [
         id: 'alternative_model',
         type: 'select',
         label: 'From the pdf, which model is better?',
-        options: [...Array(11).keys()].map(i => {
-          i = i - 1;
+        options: [ ...Array(11).keys() ].map(i => {
+          i -= 1;
           if (i == -1) return { display: 'None', value: -1 };
-          let right = i % 2 == 0;
-          let row = Math.round((i + 1) / 2);
+          const right = i % 2 == 0;
+          const row = Math.round((i + 1) / 2);
           return {
             display: `row: ${row}, ${right ? 'right' : 'left'}`,
             value: i,
@@ -188,7 +188,7 @@ export const questions = [
   },
 ];
 
-export const required = ['prediction_overall_rating'];
+export const required = [ 'prediction_overall_rating' ];
 // Are there any taxonomic issues with any part of this species? ______
 
 export const feedbackOptions = [
@@ -196,50 +196,72 @@ export const feedbackOptions = [
     title: 'Prediction: False presence',
     name: 'fb_false_presence',
     description: 'fb_false_presence_desc',
+    needPrediction: true,
   },
   {
     title: 'Prediction: False absence',
     name: 'fb_false_absence',
     description: 'fb_false_absence_desc',
+    needPrediction: true,
   },
   {
     title: 'Prediction: Alternate presence threshold',
     name: 'fb_alt_threshold',
     description: 'fb_alt_threshold_desc',
+    needPrediction: true,
   },
   {
     title: 'Prediction: Artificial shapes/lines',
     name: 'fb_pred_artifacts',
     description: 'fb_pred_artifacts_desc',
+    needPrediction: true,
   },
   {
     title: 'Prediction: Does not match expert range',
     name: 'fb_range_not_matched',
     description: 'fb_range_not_matched_desc',
+    needPrediction: true,
   },
   {
     title: 'Occurrence: Erroneous occurrences',
     name: 'fb_points_issue',
     description: 'fb_points_issue_desc',
+    needPrediction: true,
   },
   {
     title: 'Other: Species is not native to the range',
     name: 'fb_nonnative',
     description: 'fb_nonnative_desc',
+    needPrediction: true,
+  },
+  {
+    title: 'Range Map: False Presence',
+    name: 'fb_rm_false_presence',
+    description: 'fb_false_presence_desc',
+    needPrediction: false,
+  },
+  {
+    title: 'Range Map: False Absence',
+    name: 'fb_rm_false_absence',
+    description: 'fb_false_absence_desc',
+    needPrediction: false,
   },
   {
     title: 'Other: Taxonomic issue',
     name: 'fb_tax_issue',
     description: 'fb_tax_issue_desc',
+    needPrediction: true,
   },
   {
     title: 'Other: Technical issue',
     name: 'fb_tech_issue',
     description: 'fb_tech_issue_desc',
+    needPrediction: false,
   },
   {
     title: 'Other',
     name: 'fb_other',
     description: 'fb_other_desc',
+    needPrediction: false,
   },
 ];
